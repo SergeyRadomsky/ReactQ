@@ -1,3 +1,4 @@
+import React from "react";
 
 const fakeList = [1, 2, 3, 4]
 
@@ -6,9 +7,9 @@ const Task4 = () => {
     <div>
       <ul>
         {fakeList.map((item) => {
-          <li>
+          return (<li>
             {item}
-          </li>
+          </li>)
         })}
       </ul>
     </div>
