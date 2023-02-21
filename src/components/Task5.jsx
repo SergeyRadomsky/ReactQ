@@ -19,9 +19,9 @@ const Task5 = () => {
   return (
     <div>
       <ul>
-        {list.map((item, idx) => {
+        {list.map((item) => {
           return (
-            <ListItem key={idx} color={item.color}>
+            <ListItem key={item.color} color={item.color}>
               <button onClick={() => removeItemFromList(item.color)}>
                 Remove Item
               </button>

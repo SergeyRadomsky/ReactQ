@@ -6,13 +6,10 @@ const Task3 = () => {
 
   const elementRef = useRef();
   
-  // console.log(elementRef)
-
   const width = useMemo(() => {
     const elementWidth = elementRef.current
     return elementWidth;
   }, [elementRef])
-
   
   const handleButtonClick = () => {
     if (width >= 100) {
