@@ -18,10 +18,12 @@ const listOfItems = Array(4)
 
 const Task7 = (props) => {
   const [status, setStatus] = React.useState("active"); // active | blocked
+  let r = () => status === "active" ? "active" : "blocked"
+
   let myVisibleElements = listOfItems;
 
   myVisibleElements = useMemo(() => {
-    return listOfItems.filter((i) => i.status === status);
+    return listOfItems.filter((i) => (i.status === r()));
   }, [status]);
 
   const toggleStatus = () => {
