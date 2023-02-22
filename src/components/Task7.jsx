@@ -1,5 +1,5 @@
 import React from "react";
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 
 const listOfItems = Array(4)
   .fill(1)
@@ -20,23 +20,31 @@ const Task7 = (props) => {
   const [status, setStatus] = React.useState("active"); // active | blocked
   let myVisibleElements = listOfItems;
 
-  if (status === "blocked") {
-    myVisibleElements = useMemo(() => {
-      return listOfItems.filter((i) => i.status === "blocked");
-    }, [status]);
-  } else {
-    myVisibleElements = useMemo(() => {
-      return listOfItems.filter((i) => i.status === "active");
-    }, [status]);
-  }
+  myVisibleElements = useMemo(() => {
+    console.log(status);
+    return listOfItems.filter((i) => i.status === status);
+  }, [status]);
+
+  console.log(status);
+
+
+  // if (status === "blocked") {
+
+  // } else {
+  // myVisibleElements = useMemo(() => {
+  //   return listOfItems.filter((i) => i.status === "active");
+  // }, [status]);
+  // }
 
   const toggleStatus = () => {
-    setStatus(status === 'acvtive' ? 'block' : 'active')
+    console.log(status);
+    setStatus(status === 'active' ? 'block' : 'active')
+    console.log(status);
   }
 
   return (
     <div>
-      <button onClick={toggleStatus}></button>
+      <button onClick={toggleStatus}>button</button>
       {myVisibleElements.map((item, idx) => (
         <p key={idx}>{item.name}</p>
       ))}
