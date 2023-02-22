@@ -21,25 +21,11 @@ const Task7 = (props) => {
   let myVisibleElements = listOfItems;
 
   myVisibleElements = useMemo(() => {
-    console.log(status);
     return listOfItems.filter((i) => i.status === status);
   }, [status]);
 
-  console.log(status);
-
-
-  // if (status === "blocked") {
-
-  // } else {
-  // myVisibleElements = useMemo(() => {
-  //   return listOfItems.filter((i) => i.status === "active");
-  // }, [status]);
-  // }
-
   const toggleStatus = () => {
-    console.log(status);
     setStatus(status === 'active' ? 'block' : 'active')
-    console.log(status);
   }
 
   return (

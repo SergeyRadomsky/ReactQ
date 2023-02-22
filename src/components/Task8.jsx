@@ -1,8 +1,12 @@
 import React from 'react';
+import { useEffect } from 'react';
+
 
 const Task8 = (props) => {
   const [userId, setUserId] = React.useState(1);
   const [doRequest, setDoRequest] = React.useState(false);
+
+useEffect(() => {
 
   if (doRequest) {
     fakeApi(userId)
@@ -13,9 +17,10 @@ const Task8 = (props) => {
         setUserId(1);
       });
   };
+}, [doRequest])
 
   const startFetchId = () => {
-    setDoRequest(true);
+    setDoRequest(doRequest);
   }
 
   return (

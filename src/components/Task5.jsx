@@ -13,7 +13,6 @@ const Task5 = () => {
   const removeItemFromList = (value) => {
     const filteredList = list.filter((i) => i.color !== value);
     setList(filteredList);
-    // console.log(filteredList)
   };
 
   return (
