@@ -1,33 +1,32 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-
 const Task8 = (props) => {
   const [userId, setUserId] = React.useState(1);
   const [doRequest, setDoRequest] = React.useState(false);
 
-useEffect(() => {
 
+ useEffect(() => {
   if (doRequest) {
     fakeApi(userId)
       .then((result) => {
         setUserId(result);
+        setDoRequest(false)
       })
       .catch((err) => {
         setUserId(1);
       });
-  };
-}, [doRequest])
+  }
+}, [doRequest, userId])
 
   const startFetchId = () => {
-    setDoRequest(doRequest);
+    setDoRequest(!doRequest);
   }
 
   return (
     <>
-    <h1>User id is {userId}</h1>
-    <button onClick={startFetchId}>Fetch Id</button>
-    
+      <h1>User id is {userId}</h1>
+      <button onClick={startFetchId}>Fetch Id</button>
     </>
   )
 };
