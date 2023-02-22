@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useRef } from 'react';
 import styles from './Task3.module.scss';
 
@@ -9,12 +9,19 @@ const Task3 = () => {
   // console.log(elementRef);
 
 
-  const width = useMemo(() => {
-    const elementWidth = elementRef.current
-    console.log(elementWidth);
-    return elementWidth;
+  const [width, setWidth] = useState("")
+
+  
+  
+  useEffect(() => {
+    // console.log("useMemo");
+    // console.log(elementRef);
+    // console.log(elementRef.current.style.width)
+    console.log(elementRef.current.offsetWidth)
+    // return elementWidth;
+    setWidth(elementRef.current.offsetWidth)
   }, [elementRef])
-  console.log(width);
+  // console.log(width);
 
 
 
